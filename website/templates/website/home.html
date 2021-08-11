@@ -1,0 +1,59 @@
+{% extends "website/base.html" %}
+
+{% block content %}
+  {% load static %}
+<div class="row justify-content-center mt-5">
+        <div class="col-md-7 text-center">
+
+                 <h1>Welcome to Vapour Armament!</h1>
+            <p>Life is fun. But life is hard most specially during this time of pandemic! But what matters is you <u>can</u> order what you wanted! We created <b><i>VA's website</i></b> to help you make order online without risking your safety outside. We are waiting for your new orders!</p>
+        <a role="button" class="btn btn-primary btn-lg" href="{% url 'signupuser' %}">Signup now!</a>
+
+        <br>
+        <br>
+        <br>
+        <hr>
+        </div>
+        <div class="container text-center">
+          <div class="row">
+            {% for item in page_obj %}
+            <div class="col-lg-4 col-md-6">
+              <h2>{{ item.title }}</h2>
+              <p>{{ item.description }}</p>
+              {% if item.url %}
+                <br><a href = "{{ item.url }}" target="_blank"><img src = {{ item.image.url }} class="img-fluid mb-2"></a>
+              {% else %}
+              <img src = {{ item.image.url }} class="img-fluid mb-2">
+              {% endif %}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        {% if page_obj.has_other_pages %}
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+              {% if page_obj.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+              {% else %}
+                <li class="page-item"><a class="page-link"><span>&laquo;</span></a></li>
+              {% endif %}
+              {% for i in page_obj.paginator.page_range %}
+                {% if page_obj.number == i %}
+                  <li class="page-item"><a class="page-link"><span>{{ i }} <span class="sr-only">(current)</span></span></a></li>
+                {% else %}
+                  <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+              {% endfor %}
+              {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+              {% else %}
+                <li class="page-item"><a class="page-link"><span>&raquo;</span></a></li>
+              {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+
+    </div>
+
+{% endblock %}

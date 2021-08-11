@@ -1,0 +1,30 @@
+{% extends "website/base.html" %}
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+            {% if orders %}
+                 <h1>{{ orders.count }} - Active Order{{ orders.count|pluralize }}</h1>
+            {% else %}
+                 <h1>Active Orders</h1>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+        {% if orders %}
+            <div class="list-group">
+                {% for order in orders %}
+                    <a href="{% url 'vieworder' order.id %}" class="list-group-item list-group-item-action"><b>{{ order.title }}</b>{% if order.memo %} - {{ order.memo|truncatechars:30 }}{% endif %}</a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center">
+                <h2>Looks like you don't have any Orders!</h2>
+            <br>
+            <a role="button" class="btn btn-primary" href="{% url 'createorder' %}">New Order</a>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}
