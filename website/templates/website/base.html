@@ -19,7 +19,7 @@
 <div class="container">
     <a class="navbar-brand" href="{% url 'home' %}">
          <!--<img src="{% static 'todo/logo.png' %}" width="30" height="30" class="d-inline-block align-top">-->
-        <span>VA Website</span>
+        <span><img src = "{% static 'website/VA.png' %}"></span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -41,6 +41,7 @@
         </ul>
     {% endif %}
     <ul class="navbar-nav ml-auto">
+
             {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a href="#" onclick="$('#signOutBtn').click()" class="nav-link">Logout - {{user.username}}</a>
@@ -57,7 +58,7 @@
                     <a class="nav-link" href="{% url 'loginuser' %}">Login</a>
                 </li>
             {% endif %}
-        </ul>
+      </ul>
     </div>
 </div>
 </nav>
