@@ -29,13 +29,13 @@
         <ul class="navbar-nav mr-auto">
 
           <li class="nav-item {{ current }}">
-            <a class="nav-link" href="{% url 'orderpage' %}">Current</a>
+            <a class="nav-link" href="{% url 'orderpage' %}">Current Orders</a>
           </li>
           <li class="nav-item {{ completed }}">
-            <a class="nav-link" href="{% url 'completedorders' %}">Acknowledged</a>
+            <a class="nav-link" href="{% url 'completedorders' %}">Acknowledged Orders</a>
           </li>
           <li class="nav-item {{ create }}">
-            <a class="nav-link" href="{% url 'createorder' %}">Create</a>
+            <a class="nav-link" href="{% url 'createorder' %}">Create Orders</a>
           </li>
 
         </ul>
@@ -73,4 +73,25 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
+
+<br>
+<br>
+<hr>
+<footer class="bg-light text-center text-white">
+  <!-- Copyright -->
+  <div class="navbar-dark bg-dark">
+    <div>
+      © 2021 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/"><i>VapourArmament™</i></a>
+    </div>
+      <div>
+        <a>Contact Us: <i>+63 012 345 6789</i></a>
+      </div>
+      <div>
+        <a>Email Us: <i>VApourArmament@yehey.com</i></a>
+      </div>
+  </div>
+
+  <!-- Copyright -->
+</footer>
 </html>
